@@ -1,0 +1,3 @@
+site_name: Flower Classification API
+extra_css:
+  - css/custom.css
