@@ -89,10 +89,28 @@
 
 <h1 id="flower-classification-api">Flower Classification API</h1>
 <h2 id="deskripsi">Deskripsi</h2>
-<p>Dokumentasi API untuk mengelola user dan data bunga dalam sistem.</p>
+<p>Dokumentasi API untuk mengelola user, data bunga, dan klasifikasi gambar bunga dalam sistem.</p>
+<hr />
 <h2 id="base-url">BASE URL</h2>
-<pre><code>http://localhost:3000/api
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Fungsi</th>
+<th>Base URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API User &amp; Data Bunga</td>
+<td><code>http://localhost:3000/api</code></td>
+</tr>
+<tr>
+<td>API Klasifikasi Gambar Bunga</td>
+<td><code>http://localhost:3200/api</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="autentikasi">Autentikasi</h2>
 <p>API ini menggunakan autentikasi berbasis JWT ( Web Token). Setiap request yang memerlukan autentikasi harus menyertakan token di header <code>Authorization</code> dengan format:</p>
 <pre><code>Authorization: Bearer &lt;token&gt;
@@ -100,8 +118,8 @@
 <hr />
 <h2 id="endpoints">Endpoints</h2>
 <h3 id="1-register-user">1. Register User</h3>
-<p><strong>Method:</strong> <code>POST</code></p>
-<p><strong>Endpoint:</strong> <code>/auth/register</code></p>
+<p><strong>Method:</strong> <strong>POST</strong> <code>/auth/register</code>  </p>
+<p><strong>Base URL:</strong> <code>http://localhost:3000/api</code></p>
 <h4 id="request-body">Request Body:</h4>
 <pre><code>{
   &quot;username&quot;: &quot;user123&quot;,
@@ -137,8 +155,8 @@
 </ul>
 <hr />
 <h3 id="2-login-user">2. Login User</h3>
-<p><strong>Method:</strong> <code>POST</code></p>
-<p><strong>Endpoint:</strong> <code>/auth/login</code></p>
+<p><strong>Method:</strong> <strong>POST</strong> <code>/auth/login</code>  </p>
+<p><strong>Base URL:</strong> <code>http://localhost:3000/api</code></p>
 <h4 id="request-body_1">Request Body:</h4>
 <pre><code>{
   &quot;username&quot;: &quot;user123&quot;,
@@ -172,8 +190,8 @@
 </ul>
 <hr />
 <h3 id="3-mendapatkan-semua-data-bunga">3. Mendapatkan Semua Data Bunga</h3>
-<p><strong>Method:</strong> <code>GET</code></p>
-<p><strong>Endpoint:</strong> <code>/flowers</code></p>
+<p><strong>Method:</strong> <strong>GET</strong> <code>/flowers</code>  </p>
+<p><strong>Base URL:</strong> <code>http://localhost:3000/api</code></p>
 <h4 id="headers">Headers:</h4>
 <pre><code>Authorization: Bearer &lt;token&gt;
 </code></pre>
@@ -214,8 +232,8 @@
 </ul>
 <hr />
 <h3 id="4-menambahkan-data-bunga">4. Menambahkan Data Bunga</h3>
-<p><strong>Method:</strong> <code>POST</code></p>
-<p><strong>Endpoint:</strong> <code>/flowers</code></p>
+<p><strong>Method:</strong> <strong>POST</strong> <code>/flowers</code>  </p>
+<p><strong>Base URL:</strong> <code>http://localhost:3000/api</code></p>
 <h4 id="headers_1">Headers:</h4>
 <pre><code>Authorization: Bearer &lt;token&gt;
 </code></pre>
@@ -269,8 +287,8 @@
 </ul>
 <hr />
 <h3 id="5-mendapatkan-data-bunga-berdasarkan-id">5. Mendapatkan Data Bunga Berdasarkan ID</h3>
-<p><strong>Method:</strong> <code>GET</code></p>
-<p><strong>Endpoint:</strong> <code>/flowers/{id}</code></p>
+<p><strong>Method:</strong> <strong>GET</strong> <code>/flowers/{id}</code>  </p>
+<p><strong>Base URL:</strong> <code>http://localhost:3000/api</code></p>
 <h4 id="headers_2">Headers:</h4>
 <pre><code>Authorization: Bearer &lt;token&gt;
 </code></pre>
@@ -310,6 +328,34 @@
     "error": "err.message"
   }</code></p>
 </li>
+</ul>
+<hr />
+<h3 id="6-klasifikasi-gambar-bunga">6. Klasifikasi Gambar Bunga</h3>
+<p><strong>Method:</strong> <strong>POST</strong> <code>/classify</code>  </p>
+<p><strong>Base URL:</strong> <code>http://localhost:3200/api</code></p>
+<h4 id="headers_3">Headers:</h4>
+<pre><code>Content-Type: application/json
+</code></pre>
+<h4 id="request-body_3">Request Body:</h4>
+<pre><code>{
+  &quot;image&quot;: &quot;data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD...&quot; 
+}
+</code></pre>
+<h4 id="response_5">Response:</h4>
+<ul>
+<li><strong>200 OK</strong>
+  <code>{
+    "predicted_class": number,
+    "prediction": [
+      [
+        number
+      ]
+    ]
+  }</code></li>
+<li><strong>500 Internal Server Error</strong>
+  <code>{
+    "error": "err.message"
+  }</code></li>
 </ul>
 <hr />
 <h2 id="schema-table-data">Schema Table Data</h2>
@@ -502,5 +548,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-03-16 16:21:21.895117+00:00
+Build Date UTC : 2025-04-14 13:49:20.541382+00:00
 -->
