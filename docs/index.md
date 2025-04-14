@@ -1,12 +1,18 @@
 # Flower Classification API
 
 ## Deskripsi
-Dokumentasi API untuk mengelola user dan data bunga dalam sistem.
+Dokumentasi API untuk mengelola user, data bunga, dan klasifikasi gambar bunga dalam sistem.
+
+---
 
 ## BASE URL
-```
-http://localhost:3000/api
-```
+
+| Fungsi | Base URL |
+|--------|----------|
+| API User & Data Bunga | `http://localhost:3000/api` |
+| API Klasifikasi Gambar Bunga | `http://localhost:3200/api` |
+
+---
 
 ## Autentikasi
 API ini menggunakan autentikasi berbasis JWT ( Web Token). Setiap request yang memerlukan autentikasi harus menyertakan token di header `Authorization` dengan format:
@@ -19,9 +25,9 @@ Authorization: Bearer <token>
 ## Endpoints
 
 ### 1. Register User
-**Method:** `POST`
+**Method:** **POST** `/auth/register`  
 
-**Endpoint:** `/auth/register`
+**Base URL:** `http://localhost:3000/api`
 
 #### Request Body:
 ```
@@ -68,9 +74,9 @@ Authorization: Bearer <token>
 ---
 
 ### 2. Login User
-**Method:** `POST`
+**Method:** **POST** `/auth/login`  
 
-**Endpoint:** `/auth/login`
+**Base URL:** `http://localhost:3000/api`
 
 #### Request Body:
 ```
@@ -115,9 +121,9 @@ Authorization: Bearer <token>
 ---
 
 ### 3. Mendapatkan Semua Data Bunga
-**Method:** `GET`
+**Method:** **GET** `/flowers`  
 
-**Endpoint:** `/flowers`
+**Base URL:** `http://localhost:3000/api`
 
 #### Headers:
 ```
@@ -167,9 +173,9 @@ Authorization: Bearer <token>
 ---
 
 ### 4. Menambahkan Data Bunga
-**Method:** `POST`
+**Method:** **POST** `/flowers`  
 
-**Endpoint:** `/flowers`
+**Base URL:** `http://localhost:3000/api`
 
 #### Headers:
 ```
@@ -234,9 +240,9 @@ Authorization: Bearer <token>
 ---
 
 ### 5. Mendapatkan Data Bunga Berdasarkan ID
-**Method:** `GET`
+**Method:** **GET** `/flowers/{id}`  
 
-**Endpoint:** `/flowers/{id}`
+**Base URL:** `http://localhost:3000/api`
 
 #### Headers:
 ```
@@ -281,7 +287,42 @@ Authorization: Bearer <token>
     "error": "err.message"
   }
   ```
+---
+### 6. Klasifikasi Gambar Bunga
+**Method:** **POST** `/classify`  
 
+**Base URL:** `http://localhost:3200/api`
+
+#### Headers:
+```
+Content-Type: application/json
+```
+
+#### Request Body:
+```
+{
+  "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD..." 
+}
+```
+
+#### Response:
+- **200 OK**
+  ```
+  {
+    "predicted_class": number,
+    "prediction": [
+      [
+        number
+      ]
+    ]
+  }
+  ```
+- **500 Internal Server Error**
+  ```
+  {
+    "error": "err.message"
+  }
+  ```
 ---
 ## Schema Table Data
 
