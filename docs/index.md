@@ -326,21 +326,40 @@ Content-Type: application/json
 ---
 ## Schema Table Data
 
-### Table `Flower`
+---
+
+### Table `users`
 | Field            | Tipe Data | Deskripsi |
 |-----------------|-----------|-----------|
-| `id`           | integer   | ID unik bunga |
-| `name`         | string    | Nama bunga |
-| `scientific_name` | string    | Nama ilmiah bunga |
-| `description`  | string    | Deskripsi bunga |
-| `health_uses`  | string    | Manfaat kesehatan |
-| `culture_uses` | string    | Kegunaan budaya |
-| `sunlight_tips` | string    | Tips pencahayaan |
-| `water_tips`   | string    | Tips penyiraman |
-| `soil_tips`    | string    | Jenis tanah yang cocok |
-| `habitat`      | string    | Habitat alami bunga |
-| `status`       | string    | Status pertumbuhan |
-| `wikipedia`    | string    | Link Wikipedia |
+| `id`           | integer, primary key   | ID unik user |
+| `username`         | varchar(100)    | Nama user |
+| `password` | text    | Password user |
+
+---
+
+### Table `flowers`
+
+---
+
+#### SQL table flowers data
+SQL file link: [flowers_data.sql](https://www.mediafire.com/file/02rm6vrg2syi0ry/flowers_data.sql/file)
+
+---
+
+| Field            | Tipe Data | Deskripsi |
+|-----------------|-----------|-----------|
+| `id`           | integer, primary key   | ID unik bunga |
+| `name`         | varchar(100)    | Nama bunga |
+| `scientific_name` | varchar(150)    | Nama ilmiah bunga |
+| `description`  | text    | Deskripsi bunga |
+| `health_uses`  | text[]    | Manfaat kesehatan |
+| `culture_uses` | text[]    | Kegunaan budaya |
+| `sunlight_tips` | text    | Tips pencahayaan |
+| `water_tips`   | text    | Tips penyiraman |
+| `soil_tips`    | text    | Jenis tanah yang cocok |
+| `habitat`      | text    | Habitat alami bunga |
+| `status`       | varchar(100)    | Status pertumbuhan |
+| `wikipedia`    | varchar(255)    | Link Wikipedia |
 
 ---
 
