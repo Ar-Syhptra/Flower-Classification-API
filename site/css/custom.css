@@ -1,0 +1,74 @@
+/* Warna dasar */
+body {
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Warna teks dan link */
+a {
+  color: #89b4fa;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #f38ba8;
+  text-decoration: underline;
+}
+
+/* Heading */
+h1, h2, h3, h4, h5, h6 {
+  color: #fab387;
+}
+
+/* Kode dalam teks */
+code {
+  background-color: #313244;
+  color: #a6e3a1;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+/* Blok kode */
+pre {
+  background-color: #181825;
+  color: #f5e0dc;
+  padding: 10px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+/* Navbar */
+nav {
+  background-color: #181825;
+  border-bottom: 2px solid #45475a;
+}
+
+/* Sidebar */
+.md-sidebar {
+  background-color: #181825;
+  color: #cdd6f4;
+}
+
+.md-sidebar a {
+  color: #89b4fa;
+}
+
+.md-sidebar a:hover {
+  color: #f38ba8;
+}
+
+/* Tombol */
+button {
+  background-color: #89b4fa;
+  color: #1e1e2e;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f38ba8;
+  color: #1e1e2e;
+}
